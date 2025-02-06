@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard | Study Streaker</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6A11CB, #2575FC);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #FFD700;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #ddd;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            margin-bottom: 30px;
+        }
+
+        .search-bar input {
+            padding: 12px;
+            font-size: 1.2em;
+            width: 80%;
+            max-width: 500px;
+            border: 2px solid #FFD700;
+            border-radius: 30px;
+            outline: none;
+            background-color: #2E2E2E;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            border-color: #FF4E50;
+            box-shadow: 0 0 15px rgba(255, 78, 80, 0.6);
+        }
+
+        /* Leaderboard Cards */
+        .leaderboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .leaderboard .card {
+            background: linear-gradient(135deg, #FF4E50, #FF6347);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+        }
+
+        .leaderboard .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #FF6347, #FF4E50);
+        }
+
+        .leaderboard .card img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .leaderboard .card img:hover {
+            transform: scale(1.1);
+        }
+
+        .leaderboard .card h2 {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .leaderboard .card p {
+            font-size: 1.2em;
+            color: #f5f5f5;
+            margin-bottom: 5px;
+        }
+
+        .leaderboard .card .rank {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        /* Highlight Current User */
+        .current-user {
+            background: linear-gradient(135deg, #FFD700, #FF6347);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Pagination */
+        .pagination {
+            margin-top: 40px;
+        }
+
+        .pagination button {
+            padding: 12px 20px;
+            margin: 0 10px;
+            background-color: #FF4E50;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .pagination button:hover {
+            background-color: #FF6347;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .leaderboard {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .search-bar input {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .leaderboard {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Leaderboard</h1>
+            <p>Top achievers in the Study Streaker challenge</p>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for a user..." onkeyup="searchUser()">
+        </div>
+
+        <!-- Leaderboard Cards -->
+        <section class="leaderboard" id="leaderboard">
+            <!-- Cards will be inserted dynamically here -->
+        </section>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <script>
+        // Example data
+        const leaderboardData = [
+            { rank: 1, username: 'JaneDoe', streak: 52, score: 890, avatar: 'https://www.w3schools.com/howto/img_avatar.png' },
+            { rank: 2, username: 'JohnSmith', streak: 48, score: 850, avatar: 'https://www.w3schools.com/howto/img_avatar2.png' },
+            { rank: 3, username: 'MaryJohnson', streak: 46, score: 830, avatar: 'https://www.w3schools.com/howto/img_avatar3.png' },
+            { rank: 4, username: 'AlexBrown', streak: 42, score: 800, avatar: 'https://www.w3schools.com/howto/img_avatar4.png' },
+            { rank: 5, username: 'EmilyDavis', streak: 39, score: 750, avatar: 'https://www.w3schools.com/howto/img_avatar5.png' },
+            { rank: 6, username: 'LucasWhite', streak: 36, score: 720, avatar: 'https://www.w3schools.com/howto/img_avatar.png' },
+            { rank: 7, username: 'OliviaStone', streak: 33, score: 690, avatar: 'https://www.w3schools.com/howto/img_avatar2.png' },
+            { rank: 8, username: 'SophiaWilliams', streak: 30, score: 670, avatar: 'https://www.w3schools.com/howto/img_avatar3.png' },
+            // Add more sample data
+        ];
+
+        let currentPage = 1;
+        const usersPerPage = 4;
+
+        function populateLeaderboard(page = 1) {
+            const leaderboardSection = document.getElementById('leaderboard');
+            const pagination = document.getElementById('pagination');
+            leaderboardSection.innerHTML = ''; // Clear existing content
+
+            const start = (page - 1) * usersPerPage;
+            const end = page * usersPerPage;
+            const paginatedData = leaderboardData.slice(start, end);
+
+            paginatedData.forEach(data => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                if (data.username === 'JaneDoe') {
+                    card.classList.add('current-user'); // Highlight JaneDoe
+                }
+                card.innerHTML = `
+                    <div class="rank">${data.rank}</div>
+                    <img src="${data.avatar}" alt="${data.username}">
+                    <h2>${data.username}</h2>
+                    <p>Streak: ${data.streak} Days</p>
+                    <p>Score: ${data.score}</p>
+                `;
+                leaderboardSection.appendChild(card);
+            });
+
+            const totalPages = Math.ceil(leaderboardData.length / usersPerPage);
+            pagination.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.onclick = () => {
+                    currentPage = i;
+                    populateLeaderboard(i);
+                };
+                pagination.appendChild(button);
+            }
+        }
+
+        function searchUser() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const filteredData = leaderboardData.filter(data => data.username.toLowerCase().includes(searchInput));
+            const totalPages = Math.ceil(filteredData.length / usersPerPage);
+            const start = (currentPage - 1) * usersPerPage;
+            const paginatedData = filteredData.slice(start, start + usersPerPage);
+            const leaderboardSection = document.getElementById('leaderboard');
+            leaderboardSection.innerHTML = '';
+            paginatedData.forEach(data => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                if (data.username === 'JaneDoe') {
+                    card.classList.add('current-user');
+                }
+                card.innerHTML = `
+                    <div class="rank">${data.rank}</div>
+                    <img src="${data.avatar}" alt="${data.username}">
+                    <h2>${data.username}</h2>
+                    <p>Streak: ${data.streak} Days</p>
+                    <p>Score: ${data.score}</p>
+                `;
+                leaderboardSection.appendChild(card);
+            });
+
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.onclick = () => {
+                    currentPage = i;
+                    searchUser();
+                };
+                pagination.appendChild(button);
+            }
+        }
+
+        // Initial load
+        window.onload = populateLeaderboard;
+    </script>
+</body>
+</html>

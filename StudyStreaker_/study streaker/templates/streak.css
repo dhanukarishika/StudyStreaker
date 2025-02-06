@@ -1,0 +1,104 @@
+body {
+    background-color: black;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1, h3 {
+    font-family: 'Rubik Gemstones', serif;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    height: 250px;
+    width: 250px;
+  }
+  
+  /* Badge styling */
+  .badge {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 5px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    flex: 1 1 100px;
+    cursor: pointer;
+  }
+  
+  /* Badge colors */
+  .bg-primary-subtle { background-color: #007bff; color: white; }
+  .bg-secondary-subtle { background-color: #6c757d; color: white; }
+  .bg-success-subtle { background-color: #28a745; color: white; }
+  .bg-danger-subtle { background-color: #dc3545; color: white; }
+  .bg-warning-subtle { background-color: #ffc107; color: white; }
+  .bg-info-subtle { background-color: #17a2b8; color: white; }
+  .bg-light-subtle { background-color: #f8f9fa; color: black; }
+  
+  /* Hover effect for badges */
+  .badge:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Style for when badges are updated */
+  .updated {
+    background-color: white !important;
+    color: black !important;
+    transform: scale(1.2);
+  }
+  
+  /* Responsive badge layout */
+  @media (max-width: 768px) {
+    .d-flex {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .badge {
+      width: 80%;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Message when all badges are updated */
+  .message-container {
+    display: none;
+    background-color: #28a745;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 2rem;
+    margin-top: 30px;
+    animation: fadeIn 2s;
+  }
+  
+  /* Animation for fading in the message */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .showMessage {
+    display: block;
+    animation: fadeIn 2s;
+  }
+  
+  /* Smooth transition effects for badge hover */
+  .badge {
+    transition: transform 0.2s ease-in-out;
+  }

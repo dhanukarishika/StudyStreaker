@@ -1,0 +1,50 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F05941;
+  font-family: Arial, sans-serif; 
+  height: 100vh;
+}
+
+.card {
+  width: 500px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #FFC785;
+}
+
+#timer-display {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+#time-input {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+#start-btn{
+  background-color: #22092C;
+}
+#pause-btn{
+  background-color: #872341;
+}
+#reset-btn{
+  background-color: #BE3144;
+}
+
+
+

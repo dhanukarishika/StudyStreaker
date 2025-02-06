@@ -1,0 +1,19 @@
+try:
+            '''conn = connect_db()
+            cursor = conn.cursor()
+
+            query = "INSERT INTO users (username, email, password) VALUES (%s, %s, %s)"
+            values = (username, email, password)
+
+            cursor.execute(query, values)
+            conn.commit()
+
+            cursor.close()
+            conn.close()
+
+            # Redirect to a success page or login page
+            return redirect(url_for('login'))
+            except Error as e:
+            print("Error:", e)
+            return "An error occurred while connecting to the database."'''
+            

@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: bisque;
+}
+
+/* Centered main cards */
+.custom-card {
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out;
+    width: 300px;
+    text-align: center;
+}
+
+.custom-card:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: #ff66b2;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #d94d99;
+}
+
+/* 🎀 Floating Stationery */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.text-body-emphasis {
+    font-family: "Rubik Gemstones", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.text-body-secondary {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+.card{
+    background-color: antiquewhite;
+}

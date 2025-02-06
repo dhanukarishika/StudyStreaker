@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Streaker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradient-bg 10s infinite alternate;
+        }
+
+        @keyframes gradient-bg {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #b3e5fc;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ff9966, #ff5e62);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            animation: gradient-slide 8s infinite alternate;
+        }
+
+        @keyframes gradient-slide {
+            0% {
+                background-position: left;
+            }
+            100% {
+                background-position: right;
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeIn 2s;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 2.5s;
+        }
+
+        .hero .btn {
+            padding: 0.8rem 2.5rem;
+            background: white;
+            color: #ff5e62;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: fadeIn 3s;
+        }
+
+        .hero .btn:hover {
+            background: #ffe3e3;
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            background-size: 400% 400%;
+            animation: gradient-bg 10s infinite alternate;
+        }
+
+        .features .feature {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .features .feature:hover {
+            transform: scale(1.05);
+        }
+
+        .features .feature img {
+            width: 60px;
+            margin-bottom: 1.5rem;
+        }
+
+        .features .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonials {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+            color: white;
+            text-align: center;
+            animation: gradient-bg 8s infinite alternate;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonials p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .newsletter {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #ff9a9e, #fbc2eb);
+            color: white;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .newsletter input {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 300px;
+        }
+
+        .newsletter button {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            color: #ff9a9e;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background: #ffe3e3;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .features {
+                padding: 2rem 1rem;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+        img{
+            height: 100px;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Study Streaker</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Stay Focused. Stay Consistent. Achieve More.</h1>
+        <p>Transform your study sessions with personalized timers, AI-powered flashcards, and streak tracking.</p>
+        <button class="btn">Get Started for Free</button>
+    </section>
+
+    <section id="features" class="features">
+        <a href="timer.html">
+            <div class="feature">
+                <img src="timer.jpg" alt="Timer Icon">
+                <h3>Personalized Study Timer</h3>
+                <p>Boost productivity with proven techniques like the Pomodoro method.</p>
+            </div>
+        </a>
+        <a href="http://127.0.0.1:5000/">
+            <div class="feature">
+                <img src="quiz.png" alt="Flashcards Icon">
+                <h3>AI-Generated quiz questions</h3>
+                <p> Write down the topic and gain general knowledge related to it. </p>
+            </div>
+        </a>
+       <a href="streak.html"> 
+        <div class="feature">
+        <img src="streak.jpeg" alt="Streak Icon">
+        <h3>Daily Streak Tracking</h3>
+        <p>Track and reward your study habits to stay motivated.</p>
+        </div>
+        </a>
+        <a href="leaderboard.html">
+            <div class="feature">
+                <img src="leader.png" alt="Leaderboard Icon">
+                <h3>Gamified Leaderboard</h3>
+                <p>Rank yourself against others and engage in friendly competition.</p>
+            </div>
+        </a>
+        <a href="todo.html">
+            <div class="feature">
+                <img src="todo.png" alt="Leaderboard Icon">
+                <h3>Todo List</h3>
+                <p>List down what you want to do.</p>
+            </div>
+        </a>
+        
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Users Say</h2>
+        <p>"Study Streaker transformed the way I study. It's a game-changer!" - Alice</p>
+        <p>"The streak tracking keeps me motivated every single day!" - Bob</p>
+    </section>
+
+    <section class="newsletter">
+        <h2>Stay Updated</h2>
+        <form>
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2025 Study Streaker. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

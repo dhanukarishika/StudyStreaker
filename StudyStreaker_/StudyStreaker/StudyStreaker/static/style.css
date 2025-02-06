@@ -1,0 +1,181 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f8ff; /* Soft blue for a calm atmosphere */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container */
+.profile-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Header */
+.header {
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #4a90e2; /* Calm blue tone */
+}
+
+.header .streak {
+  font-weight: bold;
+  color: #f77a52; /* Warm orange for streaks */
+}
+
+/* Profile Info */
+.profile-info {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #4a90e2;
+  margin-right: 20px;
+}
+
+.details h2 {
+  font-size: 20px;
+  color: #4a90e2;
+}
+
+.details p {
+  margin: 5px 0;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #357ABD;
+}
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Set the background image */
+  background-image: url('https://static.vecteezy.com/system/resources/previews/002/375/687/non_2x/school-stationary-background-free-vector.jpg'); /* Example background image */
+  background-size: cover; /* Ensure the image covers the whole screen */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keep the background fixed */
+  animation: moveBackground 10s linear infinite; /* Add animation */
+  color: #333; /* Text color */
+  font-family: Arial, sans-serif;
+}
+
+/* Animation for the background */
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%; /* Start position */
+  }
+  50% {
+    background-position: 50% 50%; /* Midpoint */
+  }
+  100% {
+    background-position: 100% 50%; /* End position */
+  }
+}
+
+/* Profile container for content */
+.profile-container {
+  background-color: rgba(255, 255, 255, 0.8); /* Add transparency for readability */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+/* Header styles */
+.header h1 {
+  font-size: 24px;
+  color: #4a90e2;
+}
+body {
+  background-color: #f5f8ff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+label {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button.btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.btn:hover {
+  background-color: #357ABD;
+}
+
